@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM Functions</title>
+
+    <!-- load Dojo -->
+    <script src="//ajax.googleapis.com/ajax/libs/dojo/1.13.0/dojo/dojo.js"
+            data-dojo-config="async: true"></script>
+
+    <script>
+        require(["dojo/dom", "dojo/dom-construct", "dojo/domReady!"],
+          function (dom, domConstruct, on) {
+
+            let parent = dom.byId("list");
+            let one = dom.byId("one");
+            let two = dom.byId("two");
+            let three = dom.byId("three");
+            let four = dom.byId("four");
+            let five = dom.byId("five");
+
+            function moveToTop(id) {
+                domConstruct.place(id, parent, "first");
+            }
+
+            function moveRelative(ref, id, how) {
+                domConstruct.place(id, ref, how);
+            }
+
+            moveToTop(five);
+            moveRelative(three, four, 'before');
+        });
+
+    </script>
+</head>
+<body>
+    <ul id="list">
+        <li id="one">One</li>
+        <li id="two">Two</li>
+        <li id="three">Three</li>
+        <li id="four">Four</li>
+        <li id="five">Five</li>
+    </ul>
+</body>
+</html>

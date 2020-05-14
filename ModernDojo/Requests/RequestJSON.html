@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Requests</title>
+
+    <!-- load Dojo -->
+    <script src="//ajax.googleapis.com/ajax/libs/dojo/1.13.0/dojo/dojo.js"
+            data-dojo-config="async: true"></script>
+
+    <script>
+        require(["dojo/dom", "dojo/request", "dojo/domReady!"],
+          function(dom, request) {
+
+            //let url = "https://dojotoolkit.org/documentation/tutorials/1.10/ajax/demo/dojo-request-json.html";
+            let url = "myphp.php";
+            let resultDiv = dom.byId("resultDiv");
+
+            let dateNow = new Date();
+            request(url).then(
+                function(data) { console.log(data) },
+                function(error) { console.log(error) }
+            );
+        });
+
+    </script>
+</head>
+<body class="claro">
+
+    <div id="resultDiv"></div>
+
+</body>
+</html>

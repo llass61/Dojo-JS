@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Tutorial: Hello Dojo!</title>
+  <!-- <link rel="stylesheet" href="http://serverapi.arcgisonline.com/jsapi/arcgis/3.4/js/esri/css/esri.css">
+	<script src="http://serverapi.arcgisonline.com/jsapi/arcgis/3.4/"></script> -->
+</head>
+<body>
+    <h1 id="greeting">Hello</h1>
+    <!-- load Dojo -->
+    <script src="https://ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojo/dojo.js"
+            data-dojo-config="async: true"></script>
+
+    <script>
+      require(["dojo/dom", "dojo/dom-construct"], 
+        function (dom, domConstruct) {
+          let domGreetingNode = dom.byId("greeting");
+          domConstruct.place('<em> Dojo1! </em>',domGreetingNode);
+          
+          
+        }
+      );
+    </script>
+</body>
+</html>

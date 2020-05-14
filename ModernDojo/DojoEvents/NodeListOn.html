@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NodeList on</title>
+
+    <!-- load Dojo -->
+    <script src="//ajax.googleapis.com/ajax/libs/dojo/1.13.0/dojo/dojo.js"
+            data-dojo-config="async: true"></script>
+
+    <script>
+        require(["dojo/query", "dojo/domReady!"], function (query) {
+
+            query(".hookUp").on("click",function() {
+                alert("this button is hooked up!");
+            });
+        });
+
+    </script>
+</head>
+<body>
+    <button class="hookUp demoBtn">Click Me!</button>
+    <button class="hookUp demoBtn">Click Me!</button>
+    <button class="hookUp demoBtn">Click Me!</button>
+    <button class="hookUp demoBtn">Click Me!</button>
+</body>
+</html>

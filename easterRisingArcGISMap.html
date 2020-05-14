@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Create a Web Map</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<link rel="stylesheet" type="text/css" href="https://js.arcgis.com/3.24/esri/css/esri.css">
+<style>
+  html,body,#mapDiv,.map.container{
+    padding:0;
+    margin:0;
+    height:100%;
+  }
+</style>
+
+<script>var dojoConfig = { parseOnLoad:true };</script>
+<script src="https://js.arcgis.com/3.24compact/"></script>
+<script>
+  var map;
+  require(["esri/map", "esri/arcgis/utils", "dojo/domReady!"], 
+			function(Map, arcgisUtils){
+				arcgisUtils.arcgisUrl = "https://larryl.maps.arcgis.com/home/item.html?id="
+				arcgisUtils.createMap("6c21207c2bba4849a49f5c9d4116b1bc","mapDiv")
+					.then(function(response) {
+						map = response.map;
+						});
+			});
+</script>
+</head>
+
+<body>
+  <div id="mapDiv"></div>
+</body>
+</html>

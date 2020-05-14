@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Maps</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no">
+    
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no">
+    <title>Maps Toolbar</title>
+    
+    <link rel="stylesheet" href="https://js.arcgis.com/3.26/dijit/themes/claro/claro.css">
+  	<link rel="stylesheet" href="https://js.arcgis.com/3.26/esri/css/esri.css">
+	<style>
+		html, body, #mainWindow {
+			font-family: sans-serif; 
+			height: 100%; 
+			width: 100%; 
+		}
+		html, body {
+			margin: 0; 
+			padding: 0;
+		}
+		#header {
+			height: 80px; 
+			overflow: auto;
+			padding: 0.5em;
+		}
+	</style>
+	<style>
+		.esriLargeSliderVertical {
+		  height: 100px;
+		}
+		.esriLargeSliderTR {
+		  right: 10px;
+		  top: 10px;
+		}
+		#map {
+		  border:1px solid #000;
+		  height:250px; 
+		  width: 250px; 
+		}
+	  </style>
+  <script src="https://js.arcgis.com/3.26/" data-dojo-config="async:true"></script>
+	<script>
+		require([
+			"esri/map", 
+			"esri/toolbars/draw",
+			"esri/graphic",
+			"esri/symbols/SimpleMarkerSymbol",
+			"esri/symbols/SimpleLineSymbol",
+			"esri/symbols/SimpleFillSymbol",
+			"esri/layers/FeatureLayer",
+			"esri/InfoTemplate",
+			"dojo/parser", 
+			"dijit/registry",
+			"esri/geometry/Extent",
+			"esri/SpatialReference",
+			"./MultiSelect.js",
+			"./MultiSelect.1.js",
+			"./MultiSelect.2.js",
+    		"dojo/_base/lang",
+			"dijit/layout/BorderContainer", 
+			"dijit/layout/ContentPane", 
+			"dijit/form/Button", 
+			"dijit/WidgetSet", 
+			"dojo/domReady!", 
+		],  function(Map, Draw, Graphic,
+					 SimpleMarkerSymbol, 
+					 SimpleLineSymbol, 
+					 SimpleFillSymbol,
+					 FeatureLayer,
+					 InfoTemplate,
+					 parser, 
+					 registry,
+					 ext,
+					 sr,
+					 MyMultiSelect,
+					 MyMultiSelect1,
+					 MyMultiSelect2,
+					 lang,
+			) { 
+				parser.parse();	
+				esri.config.defaults.io.corsEnabledServers.push("window.location.hostname");
+				let lastExtent;
+				let defaultExtent = new esri.geometry.Extent({
+					xmin: -10919311.41681004,
+					ymin: 3612806.5850415034,
+					xmax: -10625793.228194851,
+					ymax: 3748100.125106317,
+					"spatialReference": {"wkid":3857}
+				});						
+				
+				featureLayers = [new FeatureLayer("http://localhost:6080/arcgis/rest/services/eneri/MapServer/5"),
+												 new FeatureLayer("http://localhost:6080/arcgis/rest/services/eneri/MapServer/6")];
+
+				featureLayer = new FeatureLayer("http://localhost:6080/arcgis/rest/services/eneri/MapServer/5");
+				// {
+				// 	mode: FeatureLayer.MODE_ONDEMAND,
+				// 	infoTemplate: infoTemplate,
+				// 	outFields: ["*"]
+				// });
+
+				map = new esri.Map("map", {
+					// extent: defaultExtent,
+					extent: ((lastExtent) ? lastExtent : defaultExtent),
+					basemap: "streets",
+					infoWindow: new esri.dijit.Popup({}, dojo.create("div")),
+					sliderPosition: "top-right",
+					logo: false,
+					fadeOnZoom: true,
+					force3DTransforms: true,
+					// navigationMode: "css-transforms",
+					optimizePanAnimation: true,
+					//lods: gs.conf.lods,
+				});
+				
+				// map.addLayer(featureLayer);
+				map.addLayers(featureLayers);
+
+				// map.on("click", addPoint);
+
+				// function addPoint(evt) {
+				// 	var latitude = evt.mapPoint.getLatitude();
+				// 	map.infoWindow.setTitle("Check");
+				// 	map.infoWindow.setContent("HI");
+				// 	map.infoWindow.show(evt.mapPoint);
+				// }
+				
+				// myMs = new MyMultiSelect(map);
+				// map.on("load", createToolbar);
+				// map.addLayer(new FeatureLayer("http://localhost:6080/arcgis/rest/services/eneri/MapServer/5"));
+				// map.on("load", lang.hitch( myMs, myMs.createToolbar));
+
+				// myMs = new MyMultiSelect1();
+				// map.on("load", lang.hitch(myMs, myMs.doIt));
+				// myMs = new MyMultiSelect2(map);
+				// map.on("load", lang.hitch( myMs, myMs.createToolbar));
+
+				myMs = new MyMultiSelect2(map, featureLayer);
+				map.on("load", lang.hitch( myMs, myMs.initSelectToolbar));
+			});
+	</script>
+
+  </head>
+  
+  <body class="claro">
+	<div id="mainWindow" data-dojo-type="dijit/layout/BorderContainer" data-dojo-props="design:'headline'">
+		<div id="map" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'center'"></div>
+		<div id="header" data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'top'">
+		  <span>Draw:<br /></span>
+		  <button id="pt" data-dojo-type="dijit/form/Button">Point</button>
+		  <button data-dojo-type="dijit/form/Button">Multi Point</button>
+		  <button data-dojo-type="dijit/form/Button">Line</button>
+		  <button data-dojo-type="dijit/form/Button">Polyline</button>
+		  <button data-dojo-type="dijit/form/Button">Polygon</button>
+		  <button data-dojo-type="dijit/form/Button">Freehand Polyline</button>
+		  <button data-dojo-type="dijit/form/Button">Freehand Polygon</button>
+		  
+		  <button data-dojo-type="dijit/form/Button">Arrow</button>
+		  <button data-dojo-type="dijit/form/Button">Triangle</button>
+		  <button data-dojo-type="dijit/form/Button">Circle</button>
+		  <button data-dojo-type="dijit/form/Button">Ellipse</button>
+		</div>
+	  </div>
+	
+  </body>
+  
+</html>

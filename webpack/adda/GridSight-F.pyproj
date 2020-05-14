@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6858b683-44b9-490e-9ae6-144b30fa33c1}</ProjectGuid>
+    <ProjectHome />
+    <StartupFile />
+    <SearchPath />
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <ProjectTypeGuids>{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
+    <LaunchProvider>Standard Python launcher</LaunchProvider>
+    <InterpreterId />
+    <InterpreterVersion />
+    <Name>GridSight-F</Name>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition=" '$(VisualStudioVersion)' == '' ">10.0</VisualStudioVersion>
+    <PtvsTargetsFile>$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets</PtvsTargetsFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="css\adda.css" />
+    <Content Include="desktop.ini" />
+    <Content Include="doc\GridSight-Manual%287-5-2016%29.pdf" />
+    <Content Include="doc\gridsight_manual.pdf" />
+    <Content Include="doc\procedures\.htaccess" />
+    <Content Include="doc\procedures\Capacitor Optimization Presentation.pdf" />
+    <Content Include="doc\procedures\Connectivity fixing.pdf" />
+    <Content Include="doc\procedures\MemberAddition-GridSight.pdf" />
+    <Content Include="doc\procedures\MemberAddition-GridSight.pptx" />
+    <Content Include="doc\procedures\Motor Start Analysis Presentation.pdf" />
+    <Content Include="doc\procedures\Short Circuit and Fault Analysis presentation.pdf" />
+    <Content Include="doc\procedures\list.html" />
+    <Content Include="ercot.html" />
+    <Content Include="hot - Copy.html" />
+    <Content Include="hotec.html" />
+    <Content Include="lib\gsGpService.js" />
+    <Content Include="lib\outageAnalysis.js">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="lib\reportGenerator.js" />
+    <Content Include="test.html" />
+    <Content Include="img\ajax-loader.gif" />
+    <Content Include="img\arrowsb.png" />
+    <Content Include="img\arrowsw.png" />
+    <Content Include="img\EPE_Icon.png" />
+    <Content Include="img\EPE_Logo.jpg" />
+    <Content Include="img\EPE_Logo_black.jpg" />
+    <Content Include="img\flag.png" />
+    <Content Include="img\gears.gif" />
+    <Content Include="img\home-spinner.gif" />
+    <Content Include="img\icons\alert.png" />
+    <Content Include="img\icons\blue.png" />
+    <Content Include="img\icons\check.png" />
+    <Content Include="img\icons\cross.png" />
+    <Content Include="img\icons\disk.png" />
+    <Content Include="img\icons\dlbox.png" />
+    <Content Include="img\icons\edit.png" />
+    <Content Include="img\icons\error.png" />
+    <Content Include="img\icons\gear.png" />
+    <Content Include="img\icons\green.png" />
+    <Content Include="img\icons\home.png" />
+    <Content Include="img\icons\info_qm.png" />
+    <Content Include="img\icons\orange.png" />
+    <Content Include="img\icons\plus.png" />
+    <Content Include="img\icons\print.png" />
+    <Content Include="img\icons\red.png" />
+    <Content Include="img\icons\right.png" />
+    <Content Include="img\icons\search.png" />
+    <Content Include="img\icons\table.png" />
+    <Content Include="img\loading.gif" />
+    <Content Include="img\loading_small.gif" />
+    <Content Include="img\locate-spinner.gif" />
+    <Content Include="img\symb\ac_source.png" />
+    <Content Include="img\symb\ag_bay.png" />
+    <Content Include="img\symb\ag_cap.png" />
+    <Content Include="img\symb\ag_lc.png" />
+    <Content Include="img\symb\ag_reg.png" />
+    <Content Include="img\symb\ag_res.png" />
+    <Content Include="img\symb\ag_sc.png" />
+    <Content Include="img\symb\ag_trans.png" />
+    <Content Include="img\symb\cap.png" />
+    <Content Include="img\symb\reg.png" />
+    <Content Include="img\symb\reg.svg" />
+    <Content Include="img\symb\trans.png" />
+    <Content Include="img\weather\hail.png" />
+    <Content Include="img\weather\tornado.png" />
+    <Content Include="img\weather\wind.png" />
+    <Content Include="jshintrc.txt" />
+    <Content Include="js\adda.aux.js" />
+    <Content Include="js\adda.core.js" />
+    <Content Include="js\adda.core.old2.js" />
+    <Content Include="js\adda.edit.js" />
+    <Content Include="js\adda.gp.js" />
+    <Content Include="js\adda.handlers.js" />
+    <Content Include="js\adda.init.js" />
+    <Content Include="js\adda.maploc.js" />
+    <Content Include="js\adda.ver.js" />
+    <Content Include="js\numeric-1.2.6.min.js" />
+    <Content Include="js\ref.js" />
+    <Content Include="lib\custSync.js" />
+    <Content Include="lib\dbBackup.js" />
+    <Content Include="lib\Maploc.js" />
+    <Content Include="wgt\TestUtils.js" />
+    <Content Include="notes on versioning.txt" />
+    <Content Include="ver.html" />
+    <Content Include="wgt\floatingPane\BoxConstrainedFloatingPane.js" />
+    <Content Include="wgt\floatingPane\ConstrainedFloatingPane.js" />
+    <Content Include="wgt\floatingPane\ParentConstrainedFloatingPane.js" />
+    <Content Include="wgt\infoPane.js" />
+    <Content Include="wgt\myInfoPane.css" />
+    <Content Include="wgt\myInfoPane.html" />
+    <Content Include="wgt\myInfoPane.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="css" />
+    <Folder Include="doc\" />
+    <Folder Include="doc\procedures\" />
+    <Folder Include="img" />
+    <Folder Include="img\icons" />
+    <Folder Include="img\symb" />
+    <Folder Include="img\weather" />
+    <Folder Include="js" />
+    <Folder Include="lib" />
+    <Folder Include="wgt" />
+    <Folder Include="wgt\floatingPane" />
+  </ItemGroup>
+  <Import Project="$(PtvsTargetsFile)" Condition="Exists($(PtvsTargetsFile))" />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="!Exists($(PtvsTargetsFile))" />
+</Project>

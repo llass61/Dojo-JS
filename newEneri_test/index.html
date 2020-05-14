@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=7,IE=9">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <link rel="stylesheet" href="https://js.arcgis.com/3.28/dijit/themes/claro/claro.css">
+    <link rel="stylesheet" href="https://js.arcgis.com/3.28/esri/css/esri.css" />
+
+    <title></title>
+    <style>
+      html, body, #mapDiv {
+        border: 0;
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        width: 100%;
+      }
+      .instructions {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 25%;
+        height: auto;
+        z-index: 100;
+        border-radius: 0 0 0 8px;
+        background: white;
+        padding: 0 5px;
+      }
+      h1 {
+        text-align: center;
+        margin: 4px 0;
+      }
+    </style>
+
+    <script>
+
+      var pathRegex = new RegExp("/\/[^\/]+$/");
+      var locationPath = location.pathname.replace(pathRegex, '');
+
+      var dojoConfig = {
+      async: true,
+      parseOnLoad: false,
+      packages: [
+      {
+          name: 'controllers',
+          location: locationPath + 'js/controllers'
+      },
+      {
+          name: 'services',
+          location: locationPath + 'js/services'
+      },
+      {
+          name: 'utils',
+          location: locationPath + 'js/utils'
+      },
+      {
+          name: 'app',
+          location: locationPath + 'js',
+          //location: 'js'
+      } ]
+      };
+  </script>
+
+  </head>
+
+  <body class="claro">
+
+
+    <script src="https://js.arcgis.com/3.28/"></script>
+    <script src="js/main.js"></script>
+
+    <div id="mapDiv" class="claro">
+
+      <!-- <div id="info" data-dojo-id="info" style="padding:10px; margin:10px; background-color:#eee;"></div> -->
+      <button type="button" data-dojo-id="omsPushBtn" id="omsPushBtn" data-dojo-type="dijit/form/Button">
+              <!-- onclick='omsDataPushHdl'> -->
+        <span>OMS Data Push</span>
+      </button>
+      <button type="button" data-dojo-id="clearBtn" id="clearBtn" data-dojo-type="dijit/form/Button">
+        <span>Clear</span>
+     </button>
+
+    <!-- </div> -->
+  </body>
+
+</html>

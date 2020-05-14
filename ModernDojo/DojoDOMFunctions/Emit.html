@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM Functions</title>
+
+    <!-- load Dojo -->
+    <script src="//ajax.googleapis.com/ajax/libs/dojo/1.13.0/dojo/dojo.js"
+            data-dojo-config="async: true"></script>
+
+    <script>
+        require(["dojo/dom", "dojo/on", "dojo/domReady!"],
+          function (dom, on) {
+
+            btn = dom.byId("btn1");
+            on(btn, "click", function(event) {
+                alert("button clicked");
+            });
+
+            on.emit(btn, "click", {
+                bubbles: true,
+                cancelable: true
+            });
+        });
+
+    </script>
+</head>
+<body>
+    <button id="btn1">Button 1</button>
+</body>
+</html>

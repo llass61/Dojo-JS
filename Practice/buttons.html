@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Tutorial: Hello Dojo!</title>
+  <link rel="stylesheet" href="src/dijit/themes/claro/claro.css" media="screen">
+  
+</head>
+<body class="claro">
+    <h1 id="greeting">Hello</h1>
+    <!-- load Dojo -->
+    <script src="src/dojo/dojo.js"
+            data-dojo-config="async: true">
+    </script>
+    <script type="text/javascript">
+    require(["dojo/parser", "dijit/form/Button", "dojo/domReady!"],
+    function(parser){
+        parser.parse();
+    });
+</script>
+
+            
+    <button type="button" data-dojo-type="dijit/form/Button">
+      <span>Click Me!</span>
+    </button>
+    <button type="button" data-dojo-type="dijit/form/Button">
+      <span>Click Me!</span>
+    </button>
+
+
+</body>
+</html>

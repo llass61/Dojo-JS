@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Augmenting</title>
+
+    <!-- load Dojo -->
+    <script src="//ajax.googleapis.com/ajax/libs/dojo/1.13.0/dojo/dojo.js"
+            data-dojo-config="async: true"></script>
+
+    <script>
+        require(["dojo/dom", "dojo/_base/lang", "dojo/domReady!"],
+          function(dom, lang){
+
+            let obj1 = {
+                fname: "Larry",
+                lname: "Lassetter"
+            };
+
+            let obj2 = {
+                addr: "my addr",
+                st: "Oregon",
+                zip: "97224"
+            };
+
+            lang.mixin(obj1, obj2);
+            console.log(obj1);
+
+            let settings = {};
+
+            function Hobby(settings){
+                this.settings = lang.mixin({},obj1,obj2,settings);
+            }
+
+            let newSettings = new Hobby({ hobby: "basketball" });
+             console.log(newSettings);
+              console.log(settings);
+        });
+    </script>
+</head>
+<body class="claro">
+
+    <div id="resultDiv"></div>
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Media Queries Example</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		div#main {
+			width: 70%;
+			margin: 0 auto;
+		}
+		div#item1 {
+			width: 48%;
+			float: left;
+			background-color: #f00;
+		}
+		div#item2 {
+			width: 48%;
+			float: right;
+			background-color: #00f;
+		}
+		p {
+			color: #fff;
+			padding: 1em 0;
+			text-align: center;
+			font-size: 2em;
+		}
+		@media screen and (max-width: 900px) {
+			div#item1 {
+				float: right;
+				background-color: #f88;
+			}
+			div#item2 {
+				float: left;
+				background-color: #88f;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div id="main">
+		<div id="item1">
+			<p>I am item <em>one</em></p>
+		</div>
+		<div id="item2">
+			<p>I am item <em>two</em></p>
+		</div>
+	</div>
+</body>
+</html>

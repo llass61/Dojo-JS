@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Eneri 3.27</title>
+
+	  <link rel="stylesheet" href="https://js.arcgis.com/3.28/dijit/themes/claro/claro.css">
+    <link rel="stylesheet" href="https://js.arcgis.com/3.28/esri/css/esri.css">
+    <style>
+      html, body, #map {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+
+  <script>
+      dojoConfig = {
+          packages: [
+              {
+                  name: "js",
+                  location: '/js'
+              }
+          ],
+          parseOnLoad: false,
+          async: true,
+      }
+  </script>
+
+    <script src="https://js.arcgis.com/3.28/"></script>
+
+    <script src="js/main.js"></script>
+    <!-- <script>
+      var map;
+
+      require(["esri/map", "dojo/domReady!"], function (Map) {
+        map = new Map("map", {
+          basemap: "topo",
+          center: [-122.45, 37.75],
+          zoom: 13
+        });
+      });
+
+    </script> -->
+  </head>
+
+  <body class="claro">
+    <div id="map">
+    
+    </div>
+
+  </body>
+
+</html>

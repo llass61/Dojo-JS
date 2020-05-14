@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Eneri 3.27</title>
+
+	  <link rel="stylesheet" href="https://js.arcgis.com/3.20/dijit/themes/claro/claro.css">
+    <link rel="stylesheet" href="https://js.arcgis.com/3.20/esri/css/esri.css">
+    <style>
+      html, body, #map {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+
+  <script>
+      dojoConfig = {
+          packages: [
+              {
+                  name: "js",
+                  location: '/js'
+              }
+          ],
+          parseOnLoad: false,
+          async: true,
+      }
+  </script>
+
+    <script src="https://js.arcgis.com/3.20/"></script>
+
+    <script src="js/main.js"></script>
+    <!-- <script>
+      var map;
+
+      require(["esri/map", "dojo/domReady!"], function (Map) {
+        map = new Map("map", {
+          basemap: "topo",
+          center: [-122.45, 37.75],
+          zoom: 13
+        });
+      });
+
+    </script> -->
+  </head>
+
+  <body class="claro">
+    <div id="map">
+
+        <!-- <select type="" data-dojo-type="dijit/form/ComboBox" id='abc'></select>
+        <button id='btn1' type="button" data-dojo-type="dijit/form/Button">
+          <span>Click Me!</span>
+        </button>
+        <button type="button" data-dojo-type="dijit/form/Button">
+          <span>Click Me!</span>
+        </button> -->
+
+      <div data-dojo-type="dijit/layout/ContentPane" title="Power Flow Study" data-dojo-props="selected:true">
+        <table class="formTable">
+          <tr valign="top">
+            <td><label for="pfCaseStudyNm">Case Study Name:</label></td>
+            <td><input type="text" name="pfCaseStudyNm" id="pfCaseStudyNm" class="thInput" data-dojo-type="dijit/form/ComboBox" data-dojo-props="required:true" style="width:100%;"></td>
+          </tr>
+          <tr valign="top">
+            <td><label for="pfBays">Substations and Bays:</label></td>
+            <td rowspan="2"><select data-dojo-type="dijit/form/MultiSelect" id="pfBays" name="pfBays" size="6" disabled="false"></select></td>
+          </tr>
+          <tr valign="top">
+            <td style="padding-left:10%;">
+              <input type="radio" data-dojo-type="dijit/form/RadioButton" name="pfBaySel" id="pfBaySelAll" value="*" checked />
+              <label for="pfBaySelAll">All</label><br>
+              <input type="radio" data-dojo-type="dijit/form/RadioButton" name="pfBaySel" id="pfBaySelPick" value=""" />
+              <label for="pfBaySelPick">Selection</label>
+            </td>
+          </tr>
+        </table>
+      </div>
+    
+    </div>
+
+  </body>
+
+</html>

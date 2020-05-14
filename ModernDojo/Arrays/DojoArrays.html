@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dojo Arrays</title>
+
+    <!-- load Dojo -->
+    <script src="//ajax.googleapis.com/ajax/libs/dojo/1.13.0/dojo/dojo.js"
+            data-dojo-config="async: true"></script>
+
+    <script>
+        require(["dojo/_base/array", "dojo/domReady!"],
+          function (arrayUtil) {
+
+            // indexOf will return the index value for the matched value searching for (2)
+            var arr1 = [1,2,3,4,3,2,1,2,3,4,3,2,1];
+            console.log("find idx 2: " + arrayUtil.indexOf(arr1, 2)); // returns 1
+            console.log("find idx 2: " + arrayUtil.indexOf(arr1, 2, 2)); // returns 5
+            console.log("find idx 2: " + arrayUtil.lastIndexOf(arr1, 2)); // returns 11
+
+            // uses strict ('===') comparisons
+            let obj1 = {id: 1},
+                arr2 = [ {id: 0}, obj1, {id: 2}, {id: 3}];
+
+            console.log(arrayUtil.indexOf(arr2, obj1));
+
+
+        });
+
+    </script>
+</head>
+<body class="claro">
+
+    <p>look at console messages</p>
+
+</body>
+</html>

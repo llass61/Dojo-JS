@@ -1,0 +1,11 @@
+/gridsight/*.pyc
+*.pyc
+*.pyt.xml
+*.log
+*.log.[1-9]
+.vscode/settings.json
+.vscode/launch.json
+/serviceDefinitions/sddraftToolboxes/*.tbx
+gridsight/.idea/
+node_modules
+esri/

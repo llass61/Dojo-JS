@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <meta charset="utf-8">
+   <title>esriRequest!</title>
+
+   <script>
+      dojoConfig = {
+         packages: [
+            {
+               name: "js",
+               location: '/js'
+            }
+         ],
+         parseOnLoad: false,
+         async: false
+      }
+   </script>
+
+   <script src="https://js.arcgis.com/3.28/"></script>
+   <link rel="stylesheet" href="https://js.arcgis.com/3.28/esri/css/esri.css">
+
+   <!-- <script src="http://ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojo/dojo.js"></script> -->
+   <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/dojo/1.10.4/dijit/themes/claro/claro.css"
+      media="screen">
+   <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojo/resources/dojo.css" />
+   <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojox/grid/resources/claroGrid.css" />
+
+   <script src="js/main.js"></script>
+   <!-- <script src="js/dataStores.js"></script> -->
+
+   <style>
+      #baysCB,#baysMS,#baysMS1 {
+         width: 400px;
+      }
+   </style>
+
+</head>
+
+<body class="claro">
+
+   <div>
+         <label>Combo baysCB</label>
+         <select data-dojo-id='baysCB' data-dojo-type="dijit/form/ComboBox" id="baysCB" size="6"
+                 fetchProperties='{ sort: [{attribute:"equipref",descending: false}] }'
+                 ></select>
+   </div>
+   <div>
+         <label>Combo baysMS1</label>
+         <select data-dojo-id='baysMS1' data-dojo-type="dijit/form/ComboBox" id="baysMS1" size="6"></select>
+   </div>
+   <div>
+         <label>Combo baysMS2</label>
+         <select data-dojo-id='baysMS2' data-dojo-type="dijit/form/ComboBox" id="baysMS2" size="6"></select>
+   </div>
+
+   <div>
+      <button type="button" id="select" data-dojo-type="dijit/form/Button" onclick="addToBaysCB">
+         <span>Add item</span>
+   </div>
+
+   <div>
+      <button type="button" id="select2" data-dojo-type="dijit/form/Button" onclick="addNewCtl">
+         <span>Add Ctl</span>
+   </div>
+
+   <div>
+         <label>Multiselect baysMS3</label>
+         <select data-dojo-type="dijit/form/MultiSelect" id="baysMS3" size="30"
+                 data-dojo-id="baysM3"></select>
+   </div>
+
+   <div id="map"></div>
+
+</body>
+
+</html>

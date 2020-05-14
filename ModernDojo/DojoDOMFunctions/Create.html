@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM Functions</title>
+
+    <!-- load Dojo -->
+    <script src="//ajax.googleapis.com/ajax/libs/dojo/1.13.0/dojo/dojo.js"
+            data-dojo-config="async: true"></script>
+
+    <script>
+        require(["dojo/dom", "dojo/dom-construct", "dojo/domReady!"],
+          function (dom, domConstruct) {
+
+            let parent = dom.byId("list");
+            let three = dom.byId("three");
+
+            domConstruct.create("li", {
+                innerHTML: "*Six" }, parent);
+
+            domConstruct.create("li", {
+                innerHTML: "*Seven",
+                className: "seven",
+                style: {
+                    fontWeight: "bold" } }, list);
+        });
+
+    </script>
+</head>
+<body>
+    <ul id="list">
+        <li id="one">One</li>
+        <li id="two">Two</li>
+        <li id="three">Three</li>
+        <li id="four">Four</li>
+        <li id="five">Five</li>
+    </ul>
+</body>
+</html>

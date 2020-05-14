@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sliding Effect</title>
+
+    <!-- load Dojo -->
+    <script src="//ajax.googleapis.com/ajax/libs/dojo/1.13.0/dojo/dojo.js"
+            data-dojo-config="async: true"></script>
+
+    <script>
+        require(["dojo/on", "dojo/dom", "dojo/fx", "dojo/domReady!"],
+          function (on, dom, fx) {
+
+            let btn1 = dom.byId("btn1"),
+                btn2 = dom.byId("btn2"),
+                tgtBtn = dom.byId("tgtBtn");
+
+            on(btn1, "click", function(evt){
+                animObj = fx.slideTo({ node: tgtBtn, left: "200", top: "200"});
+                animObj.play();
+            });
+
+            on(btn2, "click", function(evt){
+                fx.slideTo({ node: tgtBtn, left: "10", top: "100"}).play();
+            });
+
+        });
+
+    </script>
+</head>
+<body class="claro">
+
+    <button id="btn1">Wipe block out</button>
+    <button id="btn2">Wipe block in</button>
+
+    <div id="tgtBtn" class="red-block">
+        A red block
+    </div>
+
+</body>
+</html>

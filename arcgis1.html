@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=7,IE=9">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+	
+	<link rel="stylesheet" href="http://serverapi.arcgisonline.com/jsapi/arcgis/3.4/js/esri/css/esri.css">
+	<script src="http://serverapi.arcgisonline.com/jsapi/arcgis/3.4/"></script>
+
+	<script>
+
+		require(["esri/map", "esri/geometry/Extent", 
+						 "esri/SpatialReference", 
+						 "dojo/domReady!"], 
+            
+			function(Map, ext, sr) { 
+				// map = new Map("mapDiv", {
+				// 		basemap: "topo",
+				// 		center: [-122.45, 37.75],
+				// 		zoom: 13
+				// });
+
+				// var extent = new esri.geometry.Extent({
+				// 	"xmin":-122.68,"ymin":45.53,"xmax":-122.45,"ymax":45.6,
+				// 	"spatialReference":{"wkid":4326}
+				// });
+
+				// map.setExtent(extent);
+
+				let lastExtent;
+				let defaultExtent = new esri.geometry.Extent({
+					xmin: -10919311.41681004,
+					ymin: 3612806.5850415034,
+					xmax: -10625793.228194851,
+					ymax: 3748100.125106317,
+					"spatialReference": {"wkid":3857}
+				});
+
+				map = new esri.Map("mapDiv", {
+					extent: ((lastExtent) ? lastExtent : defaultExtent),
+					basemap: "streets",
+					infoWindow: new esri.dijit.Popup({}, dojo.create("div")),
+					sliderPosition: "top-right",
+					logo: false,
+					fadeOnZoom: true,
+					force3DTransforms: true,
+					navigationMode: "css-transforms",
+					optimizePanAnimation: true,
+					//lods: gs.conf.lods,
+				});
+
+				map.on("click", addPoint);
+
+				function addPoint(evt) {
+					var latitude = evt.mapPoint.getLatitude();
+					map.infoWindow.setTitle("Check");
+					map.infoWindow.setContent("HI");
+					map.infoWindow.show(evt.mapPoint);
+				}
+					
+			});
+		
+			
+
+		
+	</script>
+
+    <title></title>
+  </head>
+  
+  <body class="claro">
+	<div id="mapDiv"></div>
+	<div id="div"></div>
+  </body>
+  
+</html>

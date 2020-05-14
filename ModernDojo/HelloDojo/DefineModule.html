@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Tutorial: Define MyModule </title>
+</head>
+<body>
+    <h1 id="greeting">Hello</h1>
+    <!-- load Dojo -->
+
+    <!-- create dojoConfig object to load MyModule -->
+    <script>
+        var dojoConfig = {
+            async: true,
+            // register location of demo
+            packages: [{
+                name: "demo",
+                location: location.pathname.replace(/\/[^/]*$/, '') + '/myModules'
+            }]
+        };
+    </script>
+    <script src="//ajax.googleapis.com/ajax/libs/dojo/1.13.0/dojo/dojo.js"></script>
+
+    <!-- #1 -->
+    <script>
+        require([
+            "demo/myModule",
+        ], function (myModule) {
+            myModule.setText("greeting", "Hello Dojo!");
+
+            setTimeout(function() {
+                myModule.restoreText("greeting"); }, 2000);
+        });
+    </script>
+</body>
+</html>

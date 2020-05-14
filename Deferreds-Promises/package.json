@@ -1,0 +1,14 @@
+{
+  "name": "Deferreds-Promises",
+  "version": "1.0.0",
+  "description": "JavaScript development Practice",
+  "scripts": {
+  },
+  "author": "Cory House",
+  "license": "MIT",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "live-server": "^1.2.1"
+  }
+}

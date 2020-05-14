@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Events - Scope with Hitch</title>
+
+    <!-- load Dojo -->
+    <script src="//ajax.googleapis.com/ajax/libs/dojo/1.13.0/dojo/dojo.js"
+            data-dojo-config="async: true"></script>
+
+    <script>
+        require(["dojo/on", "dojo/dom", "dojo/_base/lang", "dojo/domReady!"],
+          function (on, dom, lang, mouse) {
+
+            let myScopedButton1 = dom.byId("myScopedButton1");
+            let myScopedButton2 = dom.byId("myScopedButton2"),
+                myObject = {
+                    id: "myObject",
+                    onClick: function(evt) {
+                        alert("The scope of this handler is " + this.id);
+                    }
+                };
+
+            // This will alert "myScopedButton1"
+            on(myScopedButton1, "click", myObject.onClick);
+
+            // This will alert "myObject" rather than "myScopedButton2"
+            on(myScopedButton2, "click", lang.hitch(myObject, "onClick"));
+        });
+
+    </script>
+</head>
+<body>
+    <button id="myScopedButton1">myScopedButton1</button>
+    <button id="myScopedButton2">myScopedButton2</button>
+</body>
+</html>

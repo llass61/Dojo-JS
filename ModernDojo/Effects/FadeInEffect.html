@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fade In Effect</title>
+
+    <!-- load Dojo -->
+    <script src="//ajax.googleapis.com/ajax/libs/dojo/1.13.0/dojo/dojo.js"
+            data-dojo-config="async: true"></script>
+
+    <script>
+        require(["dojo/on", "dojo/dom", "dojo/_base/fx", "dojo/domReady!"],
+          function (on, dom, fx) {
+
+            let foBtn = dom.byId("fadeOutButton"),
+                fiBtn = dom.byId("fadeInButton"),
+                fadeTgt = dom.byId("fadeTarget");
+
+            on(foBtn, "click", function(evt){
+                animObj = fx.fadeOut({ node: fadeTgt, duration: 1500 });
+                animObj.gotoPercent(.75, true);
+                //animObj.play();
+            });
+
+            on(fiBtn, "click", function(evt){
+                fx.fadeIn({ node: fadeTgt }).play()
+            });
+
+        });
+
+    </script>
+</head>
+<body class="claro">
+
+    <button id="fadeOutButton">Fade block out</button>
+    <button id="fadeInButton">Fade block in</button>
+
+    <div id="fadeTarget" class="red-block">
+        A red block
+    </div>
+
+</body>
+</html>

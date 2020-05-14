@@ -1,0 +1,141 @@
+.infoPane {
+	background-color:#fff;
+	position:relative; 
+	border: 1px solid #dedede; 
+	overflow: hidden;
+	-webkit-box-shadow: 0px 5px 10px #adadad;
+}
+
+.infoPaneFg {
+	background-color:rgba(255, 255, 255, 0);
+}
+
+/* titleNode */
+.infoPaneTitle {
+	color: white;
+	background-color: #777777;
+	overflow: hidden;
+	border: 0px;
+	margin: 0px;
+	padding: 0px;
+}
+
+.soria .infoPaneTitle {
+	background:#fff url(window.protocol+"//js.arcgis.com/3.10/js/dojo/dijit/themes/soria/images/titleBar.png") repeat-x top left;
+	border:1px solid #b1badf;
+	font-size: 0.9em;
+	font-weight: bold;
+	line-height:1.2em;
+}
+
+
+.tundra .infoPaneTitle {
+	background:#fafafa url(window.protocol+"//js.arcgis.com/3.10/js/dojo/dijit/themes/tundra/images/titleBarBg.gif") repeat-x bottom left;
+	border:1px solid #bfbfbf;
+	color:#000; 	
+}
+
+
+/* Icons */
+.infoCloseIcon {
+	background:url('http://js.arcgis.com/3.10/js/dojo/dijit/themes/tundra/images/tabClose.png') no-repeat center center; 
+	width:16px;
+	height:16px; 
+	overflow:hidden;
+	float:right; 
+}
+
+.infoMinimizeIcon {
+	background:url('http://js.arcgis.com/3.10/js/dojo/dijit/themes/tundra/images/spriteArrows.png') no-repeat 0px center; 
+	width:7px;
+	margin: 0px 4px;
+	overflow:hidden;
+	float:right; 
+}
+.soria .infoMinimizeIcon {
+	background:url(window.protocol+"//js.arcgis.com/3.10/js/dojo/dijit/themes/soria/images/spriteRoundedIconsSmallBl.png") no-repeat -15px top;
+	width: 14px;
+	margin: 0px 2px;
+}
+
+.floatingPaneMaximized .infoMaximizeIcon { display:none; }
+.infoMaximizeIcon {
+	background:url('http://js.arcgis.com/3.10/js/dojo/dijit/themes/tundra/images/spriteArrows.png') no-repeat -21px center;
+	width:7px;
+	margin: 0px 4px;
+	overflow:hidden;
+	float:right;	
+}
+.soria .infoMaximizeIcon {
+	background:url(window.protocol+"//js.arcgis.com/3.10/js/dojo/dijit/themes/soria/images/spriteRoundedIconsSmallBl.png") no-repeat -45px top;
+}
+
+.floatingPaneMaximized .infoRestoreIcon { display:inline; }
+.infoRestoreIcon {
+	background:url('http://js.arcgis.com/3.10/js/dojo/dijit/themes/tundra/images/spriteArrows.png') no-repeat 0px center; 
+	width:7px;
+	margin: 0px 4px;
+	float:right;
+	display:none;
+}
+
+
+.infoCloseIcon {
+	width:15px;
+	height:15px; 
+	overflow:hidden;
+	float:right; 
+	cursor:pointer;
+}
+
+.soria .infoCloseIcon {
+	background:url(window.protocol+"//js.arcgis.com/3.10/js/dojo/dijit/themes/soria/images/spriteRoundedIconsSmallBl.png") no-repeat -60px top;
+}
+
+.tundra .infoCloseIcon {
+	background:url('http://js.arcgis.com/3.10/js/dojo/dijit/themes/tundra/images/tabClose.png') no-repeat center center; 	
+}
+
+
+/* Modifications */
+
+.infoPaneContent {
+	/*font-family: Arial, Helvetica, sans-serif;
+	font-size: 8pt;
+	font-weight: bold;*/
+	overflow: hidden;
+	background-color:rgba(255, 255, 255, 0);
+	border: 0px;
+	margin: 0px;
+	padding: 0px;
+}
+
+.infoPaneCanvas {
+	background-color:rgba(255, 255, 255, 0.7);
+}
+
+
+.infoPaneRoleInIcon {
+    background: url('http://js.arcgis.com/3.10/js/dojo/dijit/themes/claro/images/spriteArrows.png') no-repeat scroll -21px center;
+	width: 7px;
+	height: 7px;
+    margin: 4px;
+    overflow: hidden;
+    float: left;
+}
+.infoPanePrevIcon {
+    background: url('http://js.arcgis.com/3.10/js/dojo/dijit/themes/claro/images/spriteArrows.png') no-repeat scroll -7px center;
+	width: 7px;
+	height: 7px;
+    margin: 4px;
+    overflow: hidden;
+    float: right;
+}
+.infoPaneNextIcon {
+    background: url('http://js.arcgis.com/3.10/js/dojo/dijit/themes/claro/images/spriteArrows.png') no-repeat scroll -14px center;
+	width: 7px;
+	height: 7px;
+    margin: 4px;
+    overflow: hidden;
+    float: right;
+}

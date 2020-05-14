@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" content="text/html", http-equiv="Content-Type">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Add Legend</title>
+
+    <link rel="stylesheet" href="https://js.arcgis.com/3.25/esri/css/esri.css">
+
+    <script>var dojoConfig = { parseOnLoad:true };</script>
+    <script src="https://js.arcgis.com/3.25/"></script>
+
+    <style>
+        html, body, #map {
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+        #legendDiv{
+          background-color: #fff;
+          position: absolute !important;
+          z-index: 99;
+          top:10px;
+          right:20px;
+        }
+    </style>
+
+     <script>
+        var map;
+        require(["esri/map",
+                 "esri/arcgis/utils",
+                 "esri/dijit/Legend",
+                 "dojo/domReady!"], function(Map, arcgisUtils, Legend)
+        {
+            arcgisUtils.createMap(
+                "016da65ef96e44019ee626a570836afe",
+                "map").then(function(response) {
+                   map = response.map;
+
+                   var legend = new Legend({
+                    map: map,
+                    layerInfos: (arcgisUtils.getLegendLayers(response))},
+                    "legendDiv");
+                   legend.startup();
+             });
+        });
+     </script>
+
+</head>
+<body class="claro">
+    <div id="map">
+        <div id="legendDiv"></div>
+    </div>
+</body>
+</html>
+</head>
+<body>
+
+</body>
+</html></title>
+</head>
+<body>
+
+</body>
+</html>

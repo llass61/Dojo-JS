@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" content="text/html", http-equiv="Content-Type">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Directions</title>
+
+    <link rel="stylesheet" href="https://js.arcgis.com/3.25/esri/css/esri.css">
+
+    <script src="https://js.arcgis.com/3.25/"></script>
+
+    <style>
+        html, body, #map {
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+
+     <script>
+        require([
+          "esri/map",
+          "esri/arcgis/utils",
+          "esri/dijit/Directions",
+          "dojo/parser",
+          "dijit/layout/BorderContainer", "dijit/layout/ContentPane",
+          "dojo/domReady!"
+        ], function (Map, arcgisUtils, Directions, parser) {
+
+            loadingState = "Loading";
+            errorState = "";
+            parser.parse();
+
+            var map;
+            map = new Map("map", {
+                basemap: "topo",
+                center: [-122.45, 37.75],
+                zoom: 13
+            });
+
+           var directions = new Directions({
+              map: map
+            }, "dir");
+            directions.startup();
+
+        });
+     </script>
+
+</head>
+<body class="claro">
+    <div data-dojo-type="dijit/layout/BorderContainer"
+         data-dojo-props="design:'headline', gutters:false"
+         style="width:100%;height:100%;">
+        <div data-dojo-type="dijit/layout/ContentPane"
+           data-dojo-props="region:'right'"
+           style="width:250px;">
+
+            <div id="dir"></div>
+        </div>
+        <div id="map"
+               data-dojo-type="dijit/layout/ContentPane"
+               data-dojo-props="region:'center'">
+        </div>
+    </div>
+</body>
+</html>

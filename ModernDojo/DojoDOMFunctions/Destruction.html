@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM Functions</title>
+
+    <!-- load Dojo -->
+    <script src="//ajax.googleapis.com/ajax/libs/dojo/1.13.0/dojo/dojo.js"
+            data-dojo-config="async: true"></script>
+
+    <script>
+        require(["dojo/dom", "dojo/query", "dojo/dom-construct", "dojo/on", "dojo/domReady!"],
+          function (dom, query, domConstruct, on) {
+
+            on(dom.byId("destroyFirst"), "click", function(evt) {
+                let list = dom.byId("list");
+                let items = list.getElementsByTagName("li");
+
+                if (items.length) {
+                    domConstruct.destroy(items[0]);
+                }
+            });
+
+            on(dom.byId("destroyAll", "click", function(evt) {
+                domConstruct.empty("list");
+            });
+        });
+
+    </script>
+</head>
+<body>
+    <ul id="list">
+        <li id="one">One</li>
+        <li id="two">Two</li>
+        <li id="three">Three</li>
+        <li id="four">Four</li>
+        <li id="five">Five</li>
+    </ul>
+
+    <button id="destroyFirst">Destroy the first list item</button>
+    <button id="destroyAll">Destroy all list items</button>
+
+</body>
+</html>

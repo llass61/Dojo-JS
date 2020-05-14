@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Events - One Time Event</title>
+
+    <!-- load Dojo -->
+    <script src="//ajax.googleapis.com/ajax/libs/dojo/1.13.0/dojo/dojo.js"
+            data-dojo-config="async: true"></script>
+
+    <script>
+        require(["dojo/on", "dojo/dom", "dojo/domReady!"],
+          function (on, dom, query, domStyle, mouse) {
+
+            let btn = dom.byId("myButton");
+            let hdl = on(btn, "click", function(evt) {
+                alert("Button Clicked");
+                hdl.remove();
+            });
+        });
+
+    </script>
+</head>
+<body>
+    <button id="myButton">Click Me!</button>
+</body>
+</html>

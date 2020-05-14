@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Requests</title>
+
+    <!-- load Dojo -->
+    <script src="//ajax.googleapis.com/ajax/libs/dojo/1.13.0/dojo/dojo.js"
+            data-dojo-config="async: true"></script>
+
+    <script>
+        require(["dojo/dom", "dojo/on", "dojo/request/script",
+                "dojo/json", "dojo/domReady!"
+        ], function(dom, on, script, JSON){
+            // Results will be displayed in resultDiv
+            var resultDiv = dom.byId("resultDiv");
+
+            // Attach the onclick event handler to the makeRequest button
+            on(dom.byId('makeRequest'),"click", function(evt){
+
+                // When the makeRequest button is clicked, send the current
+                // date and time to the server in a JSONP request
+                var d = new Date(),
+                    dateNow = d.toString();
+                script.get("../resources/php/jsonp-demo.php",{
+                    // Tell the server that the callback name to
+                    // use is in the "callback" query parameter
+                    jsonp: "callback",
+                    // Send the date and time
+                    query: {
+                        clienttime: dateNow
+                    }
+                }).then(function(data){
+                    // Display the result
+                    resultDiv.innerHTML = JSON.stringify(data);
+                });
+            });
+        });
+    </script>
+</head>
+<body class="claro">
+
+    <div id="resultDiv"></div>
+
+</body>
+</html>

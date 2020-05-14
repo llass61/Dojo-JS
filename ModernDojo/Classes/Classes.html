@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Classes</title>
+
+    <!-- load Dojo -->
+    <script src="//ajax.googleapis.com/ajax/libs/dojo/1.13.0/dojo/dojo.js"
+            data-dojo-config="async: true"></script>
+
+    <script>
+        require(["dojo/_base/declare", "dojo/domReady!"],
+          function(declare) {
+
+            let myObj = {
+            count: 0,
+            getCount: function(){
+                this.count += 1;
+                return this.count;}
+            }
+            myObj.getCount();
+            console.log(myObj.getCount());
+
+            <!--let MyClass = declare(null, {-->
+                <!--count: 0,-->
+
+                <!--getCount: function(){-->
+                    <!--this.count += 1;-->
+                    <!--return this.count;-->
+                <!--}-->
+            <!--});-->
+
+            <!--let mc = new MyClass();-->
+            <!--console.log(mc.getCount());-->
+
+        });
+
+    </script>
+</head>
+<body class="claro">
+
+    <p>look at console messages</p>
+
+</body>
+</html>

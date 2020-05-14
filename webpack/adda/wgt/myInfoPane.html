@@ -1,0 +1,15 @@
+<div class="infoPane" id="${id}" >
+	<div tabindex="0" role="button" class="infoPaneTitle" dojoAttachPoint="focusNode">
+		<span dojoAttachPoint="tollNode" dojoAttachEvent="onclick: close" class="infoPaneRoleInIcon"></span>
+		<span dojoAttachPoint="pervNode" dojoAttachEvent="onclick: prev" class="infoPanePrevIcon"></span>
+		<span dojoAttachPoint="nextNode" dojoAttachEvent="onclick: next" class="infoPaneNextIcon"></span>
+		<span dojoAttachPoint="closeNode" dojoAttachEvent="onclick: close" class="dojoxFloatingCloseIcon"></span>
+		<span dojoAttachPoint="maxNode" dojoAttachEvent="onclick: maximize" class="dojoxFloatingMaximizeIcon">&thinsp;</span>
+		<span dojoAttachPoint="restoreNode" dojoAttachEvent="onclick: _restore" class="dojoxFloatingRestoreIcon">&thinsp;</span>	
+		<span dojoAttachPoint="titleNode" class="dijitInline dijitTitleNode"></span>
+	</div>
+	<div dojoAttachPoint="canvas" class="infoPaneCanvas">
+		<div dojoAttachPoint="containerNode" role="region" tabindex="-1" class="${contentClass}"></div>
+	</div>
+</div>
+

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Events - Scope with Hitch</title>
+
+    <!-- load Dojo -->
+    <script src="//ajax.googleapis.com/ajax/libs/dojo/1.13.0/dojo/dojo.js"
+            data-dojo-config="async: true"></script>
+
+    <script>
+        require(["dojo/on", "dojo/dom", "dojo/query", "dojo/_base/lang", "dojo/domReady!"],
+          function (on, dom, query, lang) {
+
+            let myDiv = dom.byId("parentDiv");
+            let myObject = {
+                    id: "myObject",
+                    onClick: function(evt) {
+                        alert("The scope of this handler is " + this.id);
+                    }
+               };
+
+            on(myDiv, ".clickMe:click", myObject.onClick);
+        });
+
+    </script>
+</head>
+<body>
+    <div id="parentDiv">
+        <button id="button1" class="clickMe">Click me</button>
+        <button id="button2" class="clickMe">Click me also</button>
+        <button id="button3" class="clickMe">Click me too</button>
+        <button id="button4" class="clickMe">Please click me</button>
+    </div>
+</body>
+</html>

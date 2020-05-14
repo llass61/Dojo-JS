@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Keyboard Events</title>
+
+    <!-- load Dojo -->
+    <script src="//ajax.googleapis.com/ajax/libs/dojo/1.13.0/dojo/dojo.js"
+            data-dojo-config="async: true"></script>
+
+    <script>
+        require(["dojo/dom", "dojo/on", "dojo/domReady!"],
+          function (dom, on) {
+
+            on(document, "keyup", function(evt) {
+                document.getElementById("keyCode").value = evt.keyCode;
+                console.log("keyup");
+                console.log(evt);
+            });
+
+            on(document, "keydown", function(evt) {
+                document.getElementById("keyCode").value = evt.keyCode;
+                console.log("keydown");
+            });
+
+            on(document, "keypress", function(evt) {
+                document.getElementById("keyCode").value = evt.keyCode;
+                console.log("keypress");
+            });
+        });
+
+    </script>
+</head>
+<body>
+    <h1>Press any key</h1>
+    keyCode value: <input type="text" id="keyCode" size="2">
+</body>
+</html>

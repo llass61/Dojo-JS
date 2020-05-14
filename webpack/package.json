@@ -1,0 +1,20 @@
+{
+  "name": "eneri_webpack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./adda/js/adda.readytmp.js",
+  "scripts": {
+    "start": "webpack-dev-server",
+    "dev": "webpack --mode development",
+    "build": "webpack --mode production"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^4.41.6",
+    "webpack-bundle-tracker": "^0.4.3",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
+  }
+}

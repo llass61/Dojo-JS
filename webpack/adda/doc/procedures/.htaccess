@@ -1,0 +1,6 @@
+DirectoryIndex list.html
+
+AuthUserFile .htpasswd
+AuthName "ENER-i Login"
+AuthType Basic
+require valid-user

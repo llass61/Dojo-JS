@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Events - Scope with Hitch</title>
+
+    <!-- load Dojo -->
+    <script src="//ajax.googleapis.com/ajax/libs/dojo/1.13.0/dojo/dojo.js"
+            data-dojo-config="async: true"></script>
+
+    <script>
+        require(["dojo/on", "dojo/topic", "dojo/dom-construct", "dojo/dom", "dojo/domReady!"],
+          function (on, topic, domConstruct, dom) {
+
+            let alertButton = dom.byId("alertButton"),
+                createAlert = dom.byId("createAlert");
+
+            on(alertButton, "click", function() {
+                topic.publish("alertUser", "I am alerting you");
+            });
+
+            on(createAlert, "click", function(evt) {
+                let anotherButton = domConstruct.create("button", {
+                    innerHTML: "Another alert button" }, createAlert, "after");
+
+                on.once(anotherButton, "click", function(evt) {
+                    topic.publish("alertUser", "I will alert you once");
+                });
+            });
+
+            topic.subscribe("alertUser", function(text){
+                alert(text);
+            });
+        });
+
+    </script>
+</head>
+<body>
+    <button id="alertButton">Alert the user</button>
+    <button id="createAlert">Create another alert button</button>
+</body>
+</html>

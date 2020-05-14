@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Events - One Time Event Using Once</title>
+
+    <!-- load Dojo -->
+    <script src="//ajax.googleapis.com/ajax/libs/dojo/1.13.0/dojo/dojo.js"
+            data-dojo-config="async: true"></script>
+
+    <script>
+        require(["dojo/on", "dojo/dom", "dojo/domReady!"],
+          function (on, dom, mouse) {
+
+            let btn = dom.byId("myButton");
+            on.once(btn, "click", function(evt) {
+                alert("Button Clicked");
+            });
+        });
+
+    </script>
+</head>
+<body>
+    <button id="myButton">Click Me!</button>
+</body>
+</html>

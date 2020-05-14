@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Requests</title>
+
+    <!-- load Dojo -->
+    <script src="//ajax.googleapis.com/ajax/libs/dojo/1.13.0/dojo/dojo.js"
+            data-dojo-config="async: true"></script>
+
+    <script>
+        require(["dojo/dom", "dojo/request", "dojo/domReady!"],
+          function(dom, request) {
+
+            // should print out contents of file
+            request("helloworld.txt").then(
+                function(response){
+                    console.log(response);
+                    let elem = dom.byId("helloworldheader");
+                    elem.innerHTML = response;
+                },
+                function(error){
+                    console.log(error);
+                }
+            );
+
+            // should throw/print an error
+            request("helloworld1.txt").then(
+                function(response){
+                    console.log(response);
+                },
+                function(error){
+                    console.log(error);
+                }
+            );
+
+            // lets look at customizing
+            console.log("Customized request!!");
+            request.post("post-content.php",{
+                data: { color: "blue", answer: 42 },
+                headers: { "X-Something": "A value" }
+            }).then(
+                function(response){
+                    console.log(response);
+                },
+                function(error){
+                    console.log(error);
+                }
+            );
+        });
+
+    </script>
+</head>
+<body class="claro">
+
+    <p>look at console messages</p>
+    <h1 id="helloworldheader">???</h1>
+
+</body>
+</html>

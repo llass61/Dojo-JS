@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Requests</title>
+
+    <!-- load Dojo -->
+    <script src="//ajax.googleapis.com/ajax/libs/dojo/1.13.0/dojo/dojo.js"
+            data-dojo-config="async: true"></script>
+
+    <script>
+        require(["dojo/dom", "dojo/request", "dojo/on",
+                    "dojo/domReady!"],
+          function(dom, request, on) {
+
+            let url = "https://api.github.com/repos/dojo/dojo/pulls";
+            let requestBtn = dom.byId("pullrequestsButton");
+            let resultDiv = dom.byId("resultDiv");
+
+            on(requestBtn, "click", function(evt){
+
+                request.get(url).then(
+                    function(data){
+                        console.log(data);
+                    },
+                    function(error){
+                        console.log(error);
+                    }
+                );
+            });
+        });
+
+    </script>
+</head>
+<body class="claro">
+    <button id="pullrequestsButton">Pull Request</button>
+    <br>
+    <div id="resultDiv"></div>
+
+</body>
+</html>

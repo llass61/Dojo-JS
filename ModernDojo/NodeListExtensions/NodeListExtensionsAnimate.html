@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NodeList Extensions2</title>
+
+    <!-- load Dojo -->
+    <script src="//ajax.googleapis.com/ajax/libs/dojo/1.13.0/dojo/dojo.js"
+            data-dojo-config="async: true"></script>
+
+    <script>
+        require(["dojo/query", "dojo/NodeList-fx", "dojo/domReady!"],
+          function (query) {
+
+            query("#btn").on("click", function(){
+                query("li.fresh")
+                    .slideTo({
+                        left: 200, auto: true, duration: 750 })
+                    .animateProperty({
+                        properties: {
+                           backgroundColor: {start: "#ffffff", end: "#ffff66"} },
+                        duration: 750
+                    })
+                    .play();
+            });
+            
+        });
+
+    </script>
+</head>
+<body class="claro">
+
+    <button type="button" id="btn">Pick out fresh fruits</button>
+
+    <h3>Fresh Fruits</h3>
+    <ul id="freshList"></ul>
+
+    <h3>Fruits</h3>
+    <ul>
+        <li class="fresh">Apples</li>
+        <li class="fresh">Persimmons</li>
+        <li class="fresh">Grapes</li>
+        <li class="fresh">Fresh Figs</li>
+        <li class="dried">Dates</li>
+        <li class="dried">Raisins</li>
+        <li class="dried">Prunes</li>
+        <li class="fresh dried">Apricots</li>
+        <li class="fresh">Peaches</li>
+        <li class="fresh">Bananas</li>
+        <li class="fresh">Cherries</li>
+    </ul>
+</body>
+</html>

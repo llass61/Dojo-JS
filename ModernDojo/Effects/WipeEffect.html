@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Wipe Effect</title>
+
+    <!-- load Dojo -->
+    <script src="//ajax.googleapis.com/ajax/libs/dojo/1.13.0/dojo/dojo.js"
+            data-dojo-config="async: true"></script>
+
+    <script>
+        require(["dojo/on", "dojo/dom", "dojo/fx", "dojo/domReady!"],
+          function (on, dom, fx) {
+
+            let woBtn = dom.byId("wipeOutButton"),
+                wiBtn = dom.byId("wipeInButton"),
+                wipeTgt = dom.byId("wipeTarget");
+
+            on(woBtn, "click", function(evt){
+                animObj = fx.wipeOut({ node: wipeTgt});
+                animObj.play();
+            });
+
+            on(wiBtn, "click", function(evt){
+                fx.wipeIn({ node: wipeTgt }).play()
+            });
+
+        });
+
+    </script>
+</head>
+<body class="claro">
+
+    <button id="wipeOutButton">Wipe block out</button>
+    <button id="wipeInButton">Wipe block in</button>
+
+    <div id="wipeTarget" class="red-block">
+        A red block
+    </div>
+
+</body>
+</html>
