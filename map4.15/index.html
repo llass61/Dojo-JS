@@ -1,0 +1,156 @@
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>ArcGIS API for JavaScript Hello World App</title>
+  <style>
+    html,
+    body,
+    #viewDiv {
+      padding: 0;
+      margin: 0;
+      height: 100%;
+      width: 100%;
+    }
+  </style>
+
+  <script>
+    var djConfig = {
+      async: true,
+      paths: {
+        agsjs: location.origin+"/agsjs",
+      }
+    };
+  </script>
+
+  <link rel="stylesheet" href="https://js.arcgis.com/4.15/esri/css/main.css">
+  <script src="https://js.arcgis.com/4.15/"></script>
+
+  <script>
+    require([
+      "esri/Map",
+      "esri/views/MapView",
+      "esri/widgets/BasemapGallery",
+      "esri/geometry/Extent",
+      "esri/geometry/SpatialReference",
+      "esri/layers/MapImageLayer",
+      "esri/layers/FeatureLayer",
+      "esri/layers/WebTileLayer",
+      "esri/Basemap",
+      "esri/WebMap"
+    ], function (Map, MapView, BasemapGallery, Extent, SpatialReference,
+      MapImageLayer, FeatureLayer, WebTileLayer, Basemap, WebMap) {
+
+      let ops_phase_fs = "https://localhost:6443/arcgis/rest/services/Operations_Phase/FeatureServer";
+      let ops_phase_ms = "https://localhost:6443/arcgis/rest/services/Operations_Phase/MapServer";
+
+      let power_lines_feat_layer1 = "https://localhost:6443/arcgis/rest/services/Operations_Phase/FeatureServer/13";
+      let power_lines_feat_layer2 = "https://localhost:6443/arcgis/rest/services/Operations_Phase/FeatureServer/14";
+
+      let defaultSpatialRef = new SpatialReference({ wkid: 3857 });
+      let map_extent = setExtent();
+
+      var map = new Map({
+        basemap: "streets",
+      });
+
+      var view = new MapView({
+        container: "viewDiv",
+        map: map,
+        // center: [-118.71511, 34.09042],
+        zoom: 11,
+        extent: map_extent
+      });
+
+      // view.on('click', (e) => { console.log("Catching Click for view") });
+
+      var bmg = new BasemapGallery({
+        view: view,
+      });
+
+      view.ui.add(bmg, {
+        position: 'top-right'
+      });
+
+
+      // ops_phase = new MapImageLayer({
+      //   url: ops_phase_ms
+      // });
+      // map.add(ops_phase);
+
+      ops_phase_fs += "/12";
+      pow_lines_feat = new FeatureLayer({
+        url: ops_phase_fs
+      });
+      map.add(pow_lines_feat);
+
+      templ = {
+               title: "POWLINE",
+               content: [ 
+                  {
+                     type: "fields",
+                     fieldInfos: [
+                        {
+                           fieldName: 'secname',
+                           label: 'secname'
+                        },
+                     ]
+                  }
+               ]
+            }
+      
+      pow_lines_feat.popupTemplate = templ;
+
+      // pow_lines_feat1 = new FeatureLayer({
+      //   url: power_lines_feat_layer2
+      // });
+      // map.add(pow_lines_feat);
+
+      // var mapBaseLayer = new WebTileLayer({
+      //   urlTemplate: "https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}.png",
+      //   subDomains: ["a", "b", "c", "d"],
+      //   copyright:
+      //     'Map tiles by <a href="http://stamen.com/">Stamen Design</a>, ' +
+      //     'under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. ' +
+      //     'Data by <a href="http://openstreetmap.org/">OpenStreetMap</a>, ' +
+      //     'under <a href="http://creativecommons.org/licenses/by-sa/3.0">CC BY SA</a>.'
+      // });
+
+      // var stamen = new Basemap({
+      //   baseLayers: [mapBaseLayer],
+      //   title: "Terrain",
+      //   id: "terrain",
+      //   thumbnailUrl: "https://stamen-tiles.a.ssl.fastly.net/terrain/10/177/409.png"
+      // });
+
+      // map.add(stamen);
+
+
+
+
+
+      function setExtent() {
+        let def = new Extent({
+          xmin: -10919311.41681004,
+          ymin: 3612806.5850415034,
+          xmax: -10625793.228194851,
+          ymax: 3748100.125106317,
+          "spatialReference": defaultSpatialRef
+        });
+        return def;
+      }
+
+    });
+
+
+
+
+  </script>
+</head>
+
+<body>
+  <div id="viewDiv"></div>
+</body>
+
+</html>
